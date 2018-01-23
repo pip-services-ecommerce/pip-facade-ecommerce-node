@@ -41,6 +41,9 @@ class CreditCardsOperationsV1 extends pip_services_facade_node_1.FacadeOperation
     getCreditCards(req, res) {
         let filter = this.getFilterParams(req);
         let paging = this.getPagingParams(req);
+        let customerId = req.route.params.customer_id;
+        if (customerId)
+            filter.setAsObject('customer_id', customerId);
         this._creditCardsClient.getCreditCards(null, filter, paging, this.sendResult(req, res));
     }
     getCreditCard(req, res) {
@@ -49,16 +52,21 @@ class CreditCardsOperationsV1 extends pip_services_facade_node_1.FacadeOperation
     }
     createCreditCard(req, res) {
         let card = req.body || {};
+        let customerId = req.route.params.customer_id;
+        card.customer_id = customerId || card.customer_id;
         this._creditCardsClient.createCreditCard(null, card, this.sendResult(req, res));
     }
     updateCreditCard(req, res) {
-        let cardId = req.route.params.card_id;
         let card = req.body || {};
+        let cardId = req.route.params.card_id;
+        let customerId = req.route.params.customer_id;
         card.id = cardId;
+        card.customer_id = customerId || card.customer_id;
         this._creditCardsClient.updateCreditCard(null, card, this.sendResult(req, res));
     }
     deleteCreditCard(req, res) {
         let cardId = req.route.params.card_id;
+        let customerId = req.route.params.customer_id;
         this._creditCardsClient.deleteCreditCardById(null, cardId, this.sendResult(req, res));
     }
 }

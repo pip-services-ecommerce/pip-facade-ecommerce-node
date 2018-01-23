@@ -59,6 +59,10 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
     private getCreditCards(req: any, res: any): void {
         let filter = this.getFilterParams(req);
         let paging = this.getPagingParams(req);
+        let customerId  = req.route.params.customer_id;
+
+        if (customerId)
+            filter.setAsObject('customer_id', customerId);
 
         this._creditCardsClient.getCreditCards(
             null, filter, paging, this.sendResult(req, res)
@@ -75,6 +79,8 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
 
     private createCreditCard(req: any, res: any): void {
         let card = req.body || {};
+        let customerId  = req.route.params.customer_id;
+        card.customer_id = customerId || card.customer_id;
 
         this._creditCardsClient.createCreditCard(
             null, card, this.sendResult(req, res)
@@ -82,9 +88,12 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
     }
 
     private updateCreditCard(req: any, res: any): void {
-        let cardId = req.route.params.card_id;
         let card = req.body || {};
+        let cardId = req.route.params.card_id;
+        let customerId  = req.route.params.customer_id;
+
         card.id = cardId;
+        card.customer_id = customerId || card.customer_id;
 
         this._creditCardsClient.updateCreditCard(
             null, card, this.sendResult(req, res)
@@ -93,6 +102,7 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
 
     private deleteCreditCard(req: any, res: any): void {
         let cardId = req.route.params.card_id;
+        let customerId  = req.route.params.customer_id;
 
         this._creditCardsClient.deleteCreditCardById(
             null, cardId, this.sendResult(req, res)
