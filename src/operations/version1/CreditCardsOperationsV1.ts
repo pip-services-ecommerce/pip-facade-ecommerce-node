@@ -17,13 +17,13 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
     public constructor() {
         super();
 
-        this._dependencyResolver.put('creditcards', new Descriptor('pip-services-creditcards', 'client', '*', '*', '1.0'));
+        this._dependencyResolver.put('credit_cards', new Descriptor('pip-services-creditcards', 'client', '*', '*', '1.0'));
     }
 
     public setReferences(references: IReferences): void {
         super.setReferences(references);
 
-        this._creditCardsClient = this._dependencyResolver.getOneRequired<ICreditCardsClientV1>('creditcards');
+        this._creditCardsClient = this._dependencyResolver.getOneRequired<ICreditCardsClientV1>('credit_cards');
     }
 
     public getCreditCardsOperation() {
@@ -71,9 +71,10 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
 
     private getCreditCard(req: any, res: any): void {
         let cardId = req.route.params.card_id;
+        let customerId = req.route.params.customer_id;
 
         this._creditCardsClient.getCreditCardById(
-            null, cardId, this.sendResult(req, res)
+            null, cardId, customerId, this.sendResult(req, res)
         );
     }
 
@@ -105,7 +106,7 @@ export class CreditCardsOperationsV1  extends FacadeOperations {
         let customerId  = req.route.params.customer_id;
 
         this._creditCardsClient.deleteCreditCardById(
-            null, cardId, this.sendResult(req, res)
+            null, cardId, customerId, this.sendResult(req, res)
         );
     }
 

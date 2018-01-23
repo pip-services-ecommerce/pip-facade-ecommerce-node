@@ -26,7 +26,7 @@ suite('CreditCardsOperationsV1', () => {
 
     test('should get credit cards', (done) => {
         rest.get(
-            '/api/1.0/credit_cards?paging=1&skip=0&take=2',
+            '/api/1.0/users/1/credit_cards?paging=1&skip=0&take=2',
             (err, req, res, page) => {
                 assert.isNull(err);
 
@@ -39,7 +39,7 @@ suite('CreditCardsOperationsV1', () => {
 
     test('should delete credit cards', (done) => {
         rest.del(
-            '/api/1.0/credit_cards/1',
+            '/api/1.0/users/1/credit_cards/1',
             (err, req, res) => {
                 assert.isNull(err);
 

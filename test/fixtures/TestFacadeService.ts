@@ -12,13 +12,13 @@ export class TestFacadeService extends PartitionFacadeService {
     }
 
     protected register(): void {
-        let creditcards = this._dependencyResolver.getOneOptional<CreditCardsOperationsV1>('creditcards');
-        if (creditcards) {
-            this.registerRoute('get', '/credit_cards', creditcards.getCreditCardsOperation());
-            this.registerRoute('get', '/credit_cards/:card_id', creditcards.getCreditCardOperation());
-            this.registerRoute('post', '/credit_cards', creditcards.createCreditCardOperation());
-            this.registerRoute('put', '/credit_cards/:card_id', creditcards.updateCreditCardOperation());
-            this.registerRoute('del', '/credit_cards/:card_id', creditcards.deleteCreditCardOperation());
+        let creditCards = this._dependencyResolver.getOneOptional<CreditCardsOperationsV1>('creditcards');
+        if (creditCards) {
+            this.registerRoute('get', '/users/:customer_id/credit_cards', creditCards.getCreditCardsOperation());
+            this.registerRoute('get', '/users/:customer_id/credit_cards/:card_id', creditCards.getCreditCardOperation());
+            this.registerRoute('post', '/users/:customer_id/credit_cards', creditCards.createCreditCardOperation());
+            this.registerRoute('put', '/users/:customer_id/credit_cards/:card_id', creditCards.updateCreditCardOperation());
+            this.registerRoute('del', '/users/:customer_id/credit_cards/:card_id', creditCards.deleteCreditCardOperation());
         }
 
     }

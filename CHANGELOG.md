@@ -4,7 +4,7 @@
 * Files operations
 * User guides operations
 * User tips operations
-* Inspirational creditcards operations
+* Inspirational credit_cards operations
 * Search tags operations
 * Image sets operations
 

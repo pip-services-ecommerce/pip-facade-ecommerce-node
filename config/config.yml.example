@@ -13,69 +13,21 @@
 
 # Discovery service
 - descriptor: "pip-services-commons:discovery:memory:default:*"
-  mongodb: uri=mongodb://dls:0SJScEQ1js9cHC5K@pip-devs-test-shard-00-00-qlytb.mongodb.net:27017,pip-devs-test-shard-00-01-qlytb.mongodb.net:27017,pip-devs-test-shard-00-02-qlytb.mongodb.net:27017/test?ssl=true&replicaSet=pip-devs-test-shard-0&authSource=admin&readPreference=secondary
-
+#  mongodb: uri=mongodb://dls:0SJScEQ1js9cHC5K@pip-devs-test-shard-00-00-qlytb.mongodb.net:27017,pip-devs-test-shard-00-01-qlytb.mongodb.net:27017,pip-devs-test-shard-00-02-qlytb.mongodb.net:27017/test?ssl=true&replicaSet=pip-devs-test-shard-0&authSource=admin&readPreference=secondary
+  mongodb: uri=mongodb://localhost:27017
+  
 # Credential store
 - descriptor: "pip-services-commons:credential-store:memory:default:*"
   mongodb: username=;password=
 
-########### ECommerce management components ###########
+########### Content management components ###########
 
-# Tags components
-- descriptor: "pip-services-tags:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-tags:controller:default:default:*"
-- descriptor: "pip-services-tags:client:direct:default:*"
-
-# CreditCards components
+# Credit Cards components
 - descriptor: "pip-services-creditcards:persistence:mongodb:default:*"
   connection:
     discovery_key: mongodb
 - descriptor: "pip-services-creditcards:controller:default:default:*"
 - descriptor: "pip-services-creditcards:client:direct:default:*"
-
-# Attachments components
-- descriptor: "pip-services-attachments:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-attachments:controller:default:default:*"
-- descriptor: "pip-services-attachments:client:direct:default:*"
-
-# Files components
-- descriptor: "pip-services-files:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-files:controller:default:default:*"
-- descriptor: "pip-services-files:client:direct:default:*"
-
-# Image Sets components
-- descriptor: "pip-services-imagesets:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-imagesets:controller:default:default:*"
-- descriptor: "pip-services-imagesets:client:direct:default:*"
-
-# Tips components
-- descriptor: "pip-services-tips:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-tips:controller:default:default:*"
-- descriptor: "pip-services-tips:client:direct:default:*"
-
-# Guides components
-- descriptor: "pip-services-guides:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-guides:controller:default:default:*"
-- descriptor: "pip-services-guides:client:direct:default:*"
-
-# Dashboards components
-- descriptor: "pip-services-dashboards:persistence:mongodb:default:*"
-  connection:
-    discovery_key: mongodb
-- descriptor: "pip-services-dashboards:controller:default:default:*"
-- descriptor: "pip-services-dashboards:client:direct:default:*"
 
 ################ REST API Routes ##############
 
@@ -95,10 +47,4 @@
 - descriptor: "pip-services-facade:service:test:api-1.0:*"
   root_path: "/api/1.0"
 
-- descriptor: "pip-facade-ecommerce:operations:tags:default:1.0"
 - descriptor: "pip-facade-ecommerce:operations:creditcards:default:1.0"
-- descriptor: "pip-facade-ecommerce:operations:tips:default:1.0"
-- descriptor: "pip-facade-ecommerce:operations:guides:default:1.0"
-- descriptor: "pip-facade-ecommerce:operations:imagesets:default:1.0"
-- descriptor: "pip-facade-ecommerce:operations:files:default:1.0"
-- descriptor: "pip-facade-ecommerce:operations:dashboards:default:1.0"
