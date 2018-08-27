@@ -1,4 +1,4 @@
-import { Factory } from 'pip-services-commons-node';
+import { Factory } from 'pip-services-components-node';
 import { Descriptor } from 'pip-services-commons-node';
 
 import { CreditCardsOperationsV1 } from '../operations/version1/CreditCardsOperationsV1';
