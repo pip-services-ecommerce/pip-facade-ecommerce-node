@@ -27,7 +27,7 @@ export class TestReferences extends ManagedReferences {
     private appendCore(): void {
         this.put(null, this._factory);
 
-        this.append(new Descriptor('pip-services-facade', 'service', 'main', 'default', '*'));
+        this.append(new Descriptor('pip-services', 'facade-service', 'default', 'default', '*'));
     }
 
     private appendMicroservices(): void {
@@ -48,10 +48,10 @@ export class TestReferences extends ManagedReferences {
     private configureService(): void {
         // Configure Facade service
         let service = this.getOneRequired<MainFacadeService>(
-            new Descriptor('pip-services-facade', 'service', 'main', 'default', '*')
+            new Descriptor('pip-services', 'facade-service', 'default', 'default', '*')
         );
         service.configure(ConfigParams.fromTuples(
-            'root_path', '/api/1.0',
+            'root_path', '/api/v1',
             'connection.protocol', 'http',
             'connection.host', '0.0.0.0',
             'connection.port', 3000
