@@ -1,15 +1,15 @@
 let _ = require('lodash');
 let async = require('async');
 
-import { ConfigParams } from 'pip-services-commons-node';
-import { IReferences } from 'pip-services-commons-node';
-import { Descriptor } from 'pip-services-commons-node'; 
-import { DependencyResolver } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node'; 
+import { DependencyResolver } from 'pip-services3-commons-node';
 
 import { ICreditCardsClientV1 } from 'pip-clients-creditcards-node';
 import { CreditCardV1 } from 'pip-clients-creditcards-node';
 
-import { FacadeOperations } from 'pip-services-facade-node';
+import { FacadeOperations } from 'pip-services3-facade-node';
 
 export class CreditCardsOperationsV1  extends FacadeOperations {
     private _creditCardsClient: ICreditCardsClientV1;

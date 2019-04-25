@@ -1,5 +1,5 @@
-import { IReferences } from 'pip-services-commons-node';
-import { FacadeOperations } from 'pip-services-facade-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { FacadeOperations } from 'pip-services3-facade-node';
 export declare class CreditCardsOperationsV1 extends FacadeOperations {
     private _creditCardsClient;
     constructor();
@@ -9,9 +9,9 @@ export declare class CreditCardsOperationsV1 extends FacadeOperations {
     createCreditCardOperation(): (req: any, res: any) => void;
     updateCreditCardOperation(): (req: any, res: any) => void;
     deleteCreditCardOperation(): (req: any, res: any) => void;
-    private getCreditCards(req, res);
-    private getCreditCard(req, res);
-    private createCreditCard(req, res);
-    private updateCreditCard(req, res);
-    private deleteCreditCard(req, res);
+    private getCreditCards;
+    private getCreditCard;
+    private createCreditCard;
+    private updateCreditCard;
+    private deleteCreditCard;
 }

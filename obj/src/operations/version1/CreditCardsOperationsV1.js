@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
-const pip_services_commons_node_1 = require("pip-services-commons-node");
-const pip_services_facade_node_1 = require("pip-services-facade-node");
-class CreditCardsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
+const pip_services3_commons_node_1 = require("pip-services3-commons-node");
+const pip_services3_facade_node_1 = require("pip-services3-facade-node");
+class CreditCardsOperationsV1 extends pip_services3_facade_node_1.FacadeOperations {
     constructor() {
         super();
-        this._dependencyResolver.put('credit_cards', new pip_services_commons_node_1.Descriptor('pip-services-creditcards', 'client', '*', '*', '1.0'));
+        this._dependencyResolver.put('credit_cards', new pip_services3_commons_node_1.Descriptor('pip-services-creditcards', 'client', '*', '*', '1.0'));
     }
     setReferences(references) {
         super.setReferences(references);
