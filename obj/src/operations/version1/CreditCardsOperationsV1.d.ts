@@ -9,9 +9,9 @@ export declare class CreditCardsOperationsV1 extends FacadeOperations {
     createCreditCardOperation(): (req: any, res: any) => void;
     updateCreditCardOperation(): (req: any, res: any) => void;
     deleteCreditCardOperation(): (req: any, res: any) => void;
-    private getCreditCards;
-    private getCreditCard;
-    private createCreditCard;
-    private updateCreditCard;
-    private deleteCreditCard;
+    private getCreditCards(req, res);
+    private getCreditCard(req, res);
+    private createCreditCard(req, res);
+    private updateCreditCard(req, res);
+    private deleteCreditCard(req, res);
 }
